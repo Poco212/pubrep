@@ -1,9 +1,17 @@
-# tang server
- ![instal tang](/baihaqi/images/install-tangserver.png)
- ![start tang](/baihaqi/images/restart%26enable-tangserver.png)
- ![add port tang](/baihaqi/images/add-port-pada-tang.png)
-# clevis client
-
-# firewall
+ ![hook net clevis](/baihaqi/images/mkinitcpio/add-net%26clevis-hook.png)
+ ![add port tang](/baihaqi/images/mkinitcpio/add-port-pada-tang.png)
+ ![add port tang firewalld](/baihaqi/images/mkinitcpio/add-porttang-pada-firewalld.png)
+ ![sukses binding](/baihaqi/images/mkinitcpio/berhasil-binding.png)
+ ![cek ip address](/baihaqi/images/mkinitcpio/cek-ipaddress.png)
+ ![cek list binding server](/baihaqi/images/mkinitcpio/cek-tangpadaserver.png)
+ ![gagal binding](/baihaqi/images/mkinitcpio/gagal-binding.png)
+ ![generate mkinitcpio](/baihaqi/images/mkinitcpio/generate-mkinitcpio.png)
+ ![install clevis client](/baihaqi/images/mkinitcpio/instal-clevis-client.png)
+ ![install hook clevis](/baihaqi/images/mkinitcpio/install-hook-clevis.png)
+ ![install hook net](/baihaqi/images/mkinitcpio/install-net-hook.png)
+ ![install tang](/baihaqi/images/mkinitcpio/install-tangserver.png)
+ ![start tang](/baihaqi/images/mkinitcpio/restart%26enable-tangserver.png)
+ ![setup ip parameter](/baihaqi/images/mkinitcpio/setup-ip-parameter.png)
+ ![test tang server](/baihaqi/images/mkinitcpio/test-tang-server.png)
 
 # daftar pustaka
