@@ -9,20 +9,44 @@ Tang adalah layanan yang digunakan untuk menghubungkan kunci kriptografi dengan 
 
 ![install tang](/baihaqi/images/mkinitcpio/install-tangserver.png)
 
-Aplikasi ini sudah tersedia pada sistem operasi berbasis linux, namun harus diinstall dengan perintah `sudo pacman -S tang` seperti gambar di atas.
+Aplikasi Tang pada dasarnya telah tersedia dalam repositori resmi pada beberapa sistem operasi berbasis Linux. Ketersediaan ini memudahkan administrator sistem dalam memperoleh paket instalasi yang terverifikasi dan terintegrasi dengan sistem manajemen paket distribusi yang digunakan.
+
+Meskipun demikian, aplikasi tersebut tidak selalu terpasang secara bawaan pada saat instalasi awal sistem operasi. Oleh karena itu, diperlukan proses instalasi secara manual sebelum aplikasi dapat digunakan untuk mendukung implementasi Network Bound Disk Encryption (NBDE).
+
+Proses instalasi dilakukan melalui mekanisme manajemen paket yang disediakan oleh masing-masing distribusi Linux. Setiap distribusi memiliki pengelola paket yang berbeda, sehingga perintah instalasi yang digunakan juga menyesuaikan dengan sistem yang diterapkan.
+
+Pada sistem operasi Arch Linux, instalasi Tang dapat dilakukan menggunakan perintah manajemen paket sudo pacman -S tang. Perintah tersebut dijalankan melalui terminal dengan hak akses administratif untuk memastikan proses instalasi berjalan dengan baik.
+
+Perintah tersebut berfungsi untuk mengunduh serta memasang paket Tang beserta seluruh dependensi yang dibutuhkan dari repositori resmi Arch Linux. Dengan demikian, sistem akan secara otomatis menyesuaikan kebutuhan pustaka dan komponen pendukung lainnya sehingga aplikasi dapat berjalan secara optimal sesuai dengan konfigurasi sistem yang digunakan.
  
- ![hook net clevis](/baihaqi/images/mkinitcpio/add-net%26clevis-hook.png)
- ![add port tang](/baihaqi/images/mkinitcpio/add-port-pada-tang.png)
- ![add port tang firewalld](/baihaqi/images/mkinitcpio/add-porttang-pada-firewalld.png)
- ![sukses binding](/baihaqi/images/mkinitcpio/berhasil-binding.png)
- ![cek ip address](/baihaqi/images/mkinitcpio/cek-ipaddress.png)
- ![cek list binding server](/baihaqi/images/mkinitcpio/cek-tangpadaserver.png)
- ![gagal binding](/baihaqi/images/mkinitcpio/gagal-binding.png)
- ![generate mkinitcpio](/baihaqi/images/mkinitcpio/generate-mkinitcpio.png)
- ![install clevis client](/baihaqi/images/mkinitcpio/instal-clevis-client.png)
- ![install hook clevis](/baihaqi/images/mkinitcpio/install-hook-clevis.png)
- ![install hook net](/baihaqi/images/mkinitcpio/install-net-hook.png)
- ![start tang](/baihaqi/images/mkinitcpio/restart%26enable-tangserver.png)
- ![setup ip parameter](/baihaqi/images/mkinitcpio/setup-ip-parameter.png)
- ![test tang server](/baihaqi/images/mkinitcpio/test-tang-server.png)
+![add port tang](/baihaqi/images/mkinitcpio/add-port-pada-tang.png)
+
+![start tang](/baihaqi/images/mkinitcpio/restart%26enable-tangserver.png)
+
+![add port tang firewalld](/baihaqi/images/mkinitcpio/add-porttang-pada-firewalld.png)
+
+![reload firewalld]() 
+
+# clevis
+
+![install clevis client](/baihaqi/images/mkinitcpio/instal-clevis-client.png)
+
+![test tang server](/baihaqi/images/mkinitcpio/test-tang-server.png)
+
+# kernel parameter
+![install hook clevis](/baihaqi/images/mkinitcpio/install-hook-clevis.png)
+![install hook net](/baihaqi/images/mkinitcpio/install-net-hook.png)
+![hook net clevis](/baihaqi/images/mkinitcpio/add-net%26clevis-hook.png)
+![setup ip parameter](/baihaqi/images/mkinitcpio/setup-ip-parameter.png)
+
+## binding
+![cek ip address](/baihaqi/images/mkinitcpio/cek-ipaddress.png)
+![cek list binding server](/baihaqi/images/mkinitcpio/cek-tangpadaserver.png)
+![gagal binding](/baihaqi/images/mkinitcpio/gagal-binding.png)
+![sukses binding](/baihaqi/images/mkinitcpio/berhasil-binding.png) 
+![generate mkinitcpio](/baihaqi/images/mkinitcpio/generate-mkinitcpio.png) 
+ 
+ 
+  
+ 
 
