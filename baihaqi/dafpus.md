@@ -11,3 +11,5 @@ Khariroh, U. (2021). Analisis Sistem Klasifikasi Keamanan dan Akses Arsip Dinami
 5. Red Hat Enterprise Linux. (2024). Security Hardening: Enhancing Security of Red Hat Enterprise Linux 9 System. Red Hat Interprise Linux 9.
 
 6. Raj, Sharir. (2023). Risk Assessment in Digital Preservation: Safeguarding the Future. Journal of Advanced Research in Library and Information Science,10(3), 26-29.
+
+7. Arch manual pages. (2026). Diakses dari https://man.archlinux.org/man/tang.8.en

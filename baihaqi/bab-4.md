@@ -5,9 +5,11 @@ Pada penelitian ini, implementasi Linux Unified Key Setup (LUKS) dilakukan mengg
 Selain menggunakan Linux Unified Key Setup (LUKS), implementasi Network Bound Disk Encryption (NBDE) juga memerlukan beberapa aplikasi pendukung, antara lain Tang sebagai server otentikasi, Clevis sebagai klien untuk proses binding dan dekripsi otomatis, serta Firewalld sebagai pengelola aturan keamanan jaringan. Berikut ini merupakan penjelasan mengenai penggunaan aplikasi pendukung tersebut dalam mendukung implementasi NBDE secara menyeluruh.
 
  # Tang server
+Tang adalah layanan yang digunakan untuk menghubungkan kunci kriptografi dengan kondisi atau keberadaan jaringan tertentu sehingga pemanfaatannya bergantung pada lingkungan jaringan yang telah ditentukan (ArchLinux,2026). Mekanisme ini memungkinkan proses pembukaan kunci (dekripsi) dilakukan secara otomatis apabila sistem berada pada lingkungan jaringan yang telah ditentukan dan dipercaya.Pendekatan ini meningkatkan aspek keamanan karena akses terhadap data tidak hanya bergantung pada kunci enkripsi, tetapi juga pada validasi kondisi jaringan yang digunakan.
+
 ![install tang](/baihaqi/images/mkinitcpio/install-tangserver.png)
 
-Tang server merupakan aplikasi pendukung yang menjadi key management dan menyimpan key luks dari media penyimpanan. Aplikasi ini sudah tersedia pada sistem operasi berbasis linux, namun harus diinstall terlebih dahulu seperti gambar di atas.
+Aplikasi ini sudah tersedia pada sistem operasi berbasis linux, namun harus diinstall dengan perintah `sudo pacman -S tang` seperti gambar di atas.
  
  ![hook net clevis](/baihaqi/images/mkinitcpio/add-net%26clevis-hook.png)
  ![add port tang](/baihaqi/images/mkinitcpio/add-port-pada-tang.png)
