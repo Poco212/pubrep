@@ -7,7 +7,7 @@ Selain menggunakan Linux Unified Key Setup (LUKS), implementasi Network Bound Di
  # Tang server
 ![install tang](/baihaqi/images/mkinitcpio/install-tangserver.png)
 
- 
+Tang server merupakan aplikasi pendukung yang menjadi key management dan menyimpan key luks dari media penyimpanan. 
  
  ![hook net clevis](/baihaqi/images/mkinitcpio/add-net%26clevis-hook.png)
  ![add port tang](/baihaqi/images/mkinitcpio/add-port-pada-tang.png)
