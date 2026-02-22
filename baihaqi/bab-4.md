@@ -14,4 +14,3 @@
  ![setup ip parameter](/baihaqi/images/mkinitcpio/setup-ip-parameter.png)
  ![test tang server](/baihaqi/images/mkinitcpio/test-tang-server.png)
 
-# daftar pustaka
