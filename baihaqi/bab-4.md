@@ -21,6 +21,14 @@ Perintah tersebut berfungsi untuk mengunduh serta memasang paket Tang beserta se
  
 ![add port tang](/baihaqi/images/mkinitcpio/add-port-pada-tang.png)
 
+Setelah proses instalasi layanan Tang server selesai dilakukan, langkah selanjutnya adalah melakukan konfigurasi agar layanan tersebut dapat berjalan melalui port yang telah diberikan izin pada server. Konfigurasi ini dilakukan untuk memastikan bahwa layanan Tang dapat diakses oleh klien yang membutuhkan, khususnya dalam implementasi Network Bound Disk Encryption (NBDE). Tanpa konfigurasi port yang tepat, layanan tidak akan dapat berkomunikasi secara optimal melalui jaringan.
+
+Port itu sendiri merupakan jalur komunikasi logis yang digunakan oleh sistem operasi untuk mengidentifikasi dan mengelola lalu lintas data antar layanan dalam suatu jaringan komputer. Setiap layanan atau aplikasi jaringan berjalan pada nomor port tertentu sehingga sistem dapat membedakan satu layanan dengan layanan lainnya dalam satu alamat internet yang sama. 
+
+Dalam konfigurasi server, pembukaan dan pemberian izin terhadap port tertentu dilakukan melalui pengaturan firewall atau sistem keamanan jaringan yang digunakan. Proses ini bertujuan untuk menjaga keamanan server dengan membatasi akses hanya pada layanan yang diperlukan. Oleh karena itu, selain memastikan port telah dibuka, peneliti juga perlu mempertimbangkan aspek keamanan agar layanan Tang dapat berjalan dengan aman dan terkontrol.
+
+Pada penelitian ini port yang diberi akses merupakan 7500/tcp. Karena  secara teknis, layanan Tang secara default berjalan pada port 7500/TCP. Oleh karena itu, pembukaan port tersebut pada firewall server menjadi langkah yang diperlukan agar klien, seperti sistem operasi yang menggunakan Clevis, dapat terhubung dan melakukan proses Network Bound Disk Encryption (NBDE) tidak dapat berjalan.
+
 ![start tang](/baihaqi/images/mkinitcpio/restart%26enable-tangserver.png)
 
 ![add port tang firewalld](/baihaqi/images/mkinitcpio/add-porttang-pada-firewalld.png)
