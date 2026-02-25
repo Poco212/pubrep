@@ -41,10 +41,23 @@ Sebagai tindak lanjut dari port yang sudah dikonfigurasi pada Tang server, maka 
 Dalam konteks implementasi layanan Tang pada server, pembukaan port 7500/TCP ini bertujuan untuk memastikan bahwa layanan dapat diakses oleh klien melalui jaringan. Tanpa penambahan port ini, firewall berpotensi memblokir lalu lintas masuk menuju port yang digunakan oleh layanan, sehingga proses komunikasi antara server dan klien tidak dapat berlangsung. Oleh karena itu, pengaturan firewall menjadi bagian penting dalam tahapan konfigurasi sistem guna menjamin ketersediaan layanan sekaligus tetap mempertahankan kontrol keamanan jaringan.
 
 # clevis
+Selain layanan Tang pada sisi server, implementasi Network Bound Disk Encryption (NBDE) juga memerlukan komponen pendukung pada sisi klien, yaitu Clevis. Clevis merupakan perangkat lunak yang berfungsi sebagai automated decryption framework yang memungkinkan proses pembukaan kunci enkripsi dilakukan secara otomatis berdasarkan kebijakan tertentu. Dalam konteks NBDE, Clevis digunakan untuk melakukan binding antara sistem terenkripsi seperti LUKS dengan layanan Tang sebagai penyedia kunci di jaringan, sehingga proses dekripsi dapat berlangsung tanpa interaksi manual saat sistem melakukan booting (Red Hat, 2023).
+
+Lebih lanjut, Clevis bekerja dengan mengimplementasikan konsep policy-based decryption, di mana kunci enkripsi tidak disimpan secara langsung dalam sistem, melainkan diperoleh melalui mekanisme autentikasi terhadap layanan yang telah dikonfigurasi sebelumnya. Mekanisme ini meningkatkan aspek keamanan karena kunci hanya dapat diperoleh apabila klien berada dalam lingkungan jaringan yang sesuai dengan kebijakan yang telah ditentukan. Dengan demikian, Clevis berperan sebagai penghubung antara sistem terenkripsi dengan server Tang dalam skema NBDE, sehingga memungkinkan proses dekripsi otomatis berjalan secara aman dan terkontrol.
+
+Sejalan dengan mekanisme tersebut, integrasi antara Clevis dan Tang memungkinkan terciptanya sistem enkripsi disk yang tidak bergantung pada input kata sandi secara manual saat proses booting berlangsung. Oleh karena itu, penggunaan Clevis pada sisi klien menjadi komponen pendukung keberhasilan implementasi Network Bound Disk Encryption secara menyeluruh.
 
 ![install clevis client](/baihaqi/images/mkinitcpio/instal-clevis-client.png)
 
+Perintah pada gambar diatas merupakan perintah untuk melakukan instalasi paket atau layanan clevis yang terdapat pada sistem operasi Archlinux. Dengan menjalankan perintah tersebut, sistem akan mengunduh paket Clevis beserta dependensi yang dibutuhkan sehingga layanan dapat digunakan pada sisi klien dalam implementasi Network Bound Disk Encryption (NBDE).
+
+Setelah proses instalasi selesai dilakukan, Clevis dapat dikonfigurasi untuk melakukan proses binding antara volume terenkripsi LUKS dengan server Tang sebagai penyedia kebijakan dekripsi berbasis jaringan. Sebagaimana dijelaskan dalam dokumentasi resmi Red Hat (2024), Clevis berfungsi sebagai automated decryption framework yang memungkinkan pembukaan volume terenkripsi secara otomatis berdasarkan kebijakan tertentu tanpa memerlukan input kata sandi secara manual saat proses booting. Dengan demikian, instalasi Clevis merupakan tahapan awal yang krusial sebelum dilakukan konfigurasi lanjutan dalam skema NBDE.
+
 ![test tang server](/baihaqi/images/mkinitcpio/test-tang-server.png)
+
+Setelah proses instalasi dan konfigurasi layanan Tang pada sisi server serta Clevis pada sisi klien selesai dilakukan, tahapan berikutnya adalah melakukan pengujian konektivitas terhadap layanan Tang sebelum proses binding diterapkan pada media penyimpanan yang terenkripsi. Pengujian ini bertujuan untuk memastikan bahwa layanan Tang dapat diakses melalui jaringan serta merespons permintaan klien dengan baik sesuai dengan konfigurasi port dan firewall yang telah ditetapkan. 
+
+Apabila layanan Tang tidak dapat diakses atau terjadi kesalahan dalam komunikasi jaringan, maka Clevis tidak akan mampu memperoleh kebijakan dekripsi yang dibutuhkan untuk membuka media penyimpanan yang  terenkripsi. Kondisi ini berpotensi menyebabkan kegagalan mekanisme automatic unlocking dalam skema NBDE, sehingga sistem memerlukan intervensi manual untuk memasukkan kata sandi enkripsi. Oleh karena itu, tahapan pengujian konektivitas menjadi bagian penting dalam memastikan keberhasilan implementasi Network Bound Disk Encryption secara menyeluruh. 
 
 # kernel parameter
 ![install hook clevis](/baihaqi/images/mkinitcpio/install-hook-clevis.png)
