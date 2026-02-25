@@ -25,15 +25,20 @@ Setelah proses instalasi layanan Tang server selesai dilakukan, langkah selanjut
 
 Port itu sendiri merupakan jalur komunikasi logis yang digunakan oleh sistem operasi untuk mengidentifikasi dan mengelola lalu lintas data antar layanan dalam suatu jaringan komputer. Setiap layanan atau aplikasi jaringan berjalan pada nomor port tertentu sehingga sistem dapat membedakan satu layanan dengan layanan lainnya dalam satu alamat internet yang sama. 
 
-Dalam konfigurasi server, pembukaan dan pemberian izin terhadap port tertentu dilakukan melalui pengaturan firewall atau sistem keamanan jaringan yang digunakan. Proses ini bertujuan untuk menjaga keamanan server dengan membatasi akses hanya pada layanan yang diperlukan. Oleh karena itu, selain memastikan port telah dibuka, peneliti juga perlu mempertimbangkan aspek keamanan agar layanan Tang dapat berjalan dengan aman dan terkontrol.
+Dalam konfigurasi server, pembukaan dan pemberian izin terhadap port tertentu dilakukan melalui pengaturan firewall atau sistem keamanan jaringan yang digunakan. Proses ini bertujuan untuk menjaga keamanan server dengan membatasi akses hanya pada layanan yang diperlukan (Abu Bakar & Kijsirikul,2023). Oleh karena itu, selain memastikan port telah dibuka, peneliti juga perlu mempertimbangkan aspek keamanan agar layanan Tang dapat berjalan dengan aman dan terkontrol.
 
 Pada penelitian ini port yang diberi akses merupakan 7500/tcp. Karena  secara teknis, layanan Tang secara default berjalan pada port 7500/TCP. Oleh karena itu, pembukaan port tersebut pada firewall server menjadi langkah yang diperlukan agar klien, seperti sistem operasi yang menggunakan Clevis, dapat terhubung dan melakukan proses Network Bound Disk Encryption (NBDE) tidak dapat berjalan.
 
 ![start tang](/baihaqi/images/mkinitcpio/restart%26enable-tangserver.png)
 
-![add port tang firewalld](/baihaqi/images/mkinitcpio/add-porttang-pada-firewalld.png)
+Setelah layanan Tang terinstal dan port pada server telah dikonfigurasi sesuai dengan kebijakan keamanan jaringan yang berlaku, langkah selanjutnya adalah menjalankan layanan tersebut agar dapat beroperasi sebagaimana mestinya. Proses ini dilakukan untuk memastikan bahwa server Tang siap menerima permintaan koneksi dari klien yang akan melakukan proses pengambilan kunci enkripsi. Dengan menjalankan layanan, sistem akan mengaktifkan proses daemon Tang sehingga dapat merespons komunikasi jaringan melalui port yang telah dibuka sebelumnya.
 
-![reload firewalld]() 
+Selain dijalankan secara manual, layanan Tang juga perlu dikonfigurasi agar aktif secara otomatis saat sistem server dinyalakan kembali setelah mengalami penghentian atau restart. Pengaturan ini bertujuan untuk menjaga ketersediaan layanan  sehingga mekanisme Network Bound Disk Encryption (NBDE) tetap dapat berjalan tanpa intervensi administrator setiap kali server mengalami gangguan daya atau pemeliharaan sistem. 
+
+![add port tang firewalld](/baihaqi/images/mkinitcpio/add-porttang-pada-firewalld.png)
+Sebagai tindak lanjut dari port yang sudah dikonfigurasi pada Tang server, maka harus melakukan penambahan port tersebut kedalam firewall server. Perintah pada gambar di atas digunakan untuk menambahkan aturan pada sistem firewall agar membuka akses terhadap port 7500 dengan protokol TCP secara permanen. Perintah tersebut dijalankan dengan hak akses administratif (superuser) menggunakan sudo, karena perubahan konfigurasi firewall memerlukan izin tingkat sistem. 
+
+Dalam konteks implementasi layanan Tang pada server, pembukaan port 7500/TCP ini bertujuan untuk memastikan bahwa layanan dapat diakses oleh klien melalui jaringan. Tanpa penambahan port ini, firewall berpotensi memblokir lalu lintas masuk menuju port yang digunakan oleh layanan, sehingga proses komunikasi antara server dan klien tidak dapat berlangsung. Oleh karena itu, pengaturan firewall menjadi bagian penting dalam tahapan konfigurasi sistem guna menjamin ketersediaan layanan sekaligus tetap mempertahankan kontrol keamanan jaringan.
 
 # clevis
 

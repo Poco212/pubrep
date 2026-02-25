@@ -14,4 +14,6 @@ Khariroh, U. (2021). Analisis Sistem Klasifikasi Keamanan dan Akses Arsip Dinami
 
 7. Arch manual pages. (2026). Diakses dari https://man.archlinux.org/man/tang.8.en
 
-8. 
+8. Abu Bakar, R., & Kijsirikul, B. (2023). Enhancing network visibility and security with advanced port scanning techniques. Sensors, 23(17), 7541. https://doi.org/10.3390/s23177541.
+
+9. 
